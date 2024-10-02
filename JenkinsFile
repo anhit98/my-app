@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'doanh98/mydemo:0.1.0'
+      image 'doanh98/my-app:0.1.0'
       args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
   }
@@ -31,7 +31,7 @@ pipeline {
     }
     stage('Build and Push Docker Image') {
       environment {
-        DOCKER_IMAGE = "doanh98/mydemo:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "doanh98/my-app:${BUILD_NUMBER}"
       }
       steps {
         script {
@@ -45,7 +45,7 @@ pipeline {
     }
     stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "mydemo"
+            GIT_REPO_NAME = "my-app"
             GIT_USER_NAME = "anhit98"
         }
         steps {
@@ -54,8 +54,8 @@ pipeline {
                     git config user.email "anhngocdo13061998@gmail.com"
                     git config user.name "anhit98"
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i "s/v0.1.0/${BUILD_NUMBER}/g" mydemo/deployment.yml
-                    git add mydemo/deployment.yml
+                    sed -i "s/v0.1.0/${BUILD_NUMBER}/g" my-app/deployment.yml
+                    git add my-app/deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                 '''
