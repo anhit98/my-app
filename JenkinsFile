@@ -9,6 +9,17 @@ pipeline {
       }
     }
 
+    stage('Check Docker') {
+        steps {
+            script {
+                // Check if Docker is in the path
+                sh 'echo $PATH'
+                sh 'which docker || echo "Docker not found in PATH"'
+                sh 'docker --version || echo "Docker command not found"'
+            }
+        }
+    }
+
     stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "doanh98/my-app:${BUILD_NUMBER}"
