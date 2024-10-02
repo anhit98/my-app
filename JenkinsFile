@@ -1,6 +1,6 @@
 pipeline {
-      agent any
-  }
+  agent any
+
   stages {
     stage('Checkout') {
       steps {
@@ -8,7 +8,6 @@ pipeline {
         //git branch: 'main', url: ''
       }
     }
-
     stage('Check Docker') {
         steps {
             script {
@@ -19,7 +18,6 @@ pipeline {
             }
         }
     }
-
     stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "doanh98/my-app:${BUILD_NUMBER}"
@@ -55,4 +53,5 @@ pipeline {
             }
         }
     }
+  }
 }
