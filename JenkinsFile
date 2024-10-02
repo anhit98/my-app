@@ -19,6 +19,7 @@ pipeline {
       }
       steps {
         script {
+            sh 'pwd'
             sh 'ls -ltr'
             sh 'which docker'
             sh 'docker build -t ${DOCKER_IMAGE} .'
