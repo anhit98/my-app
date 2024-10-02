@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: mydemo
   labels:
-    app: my-app
+    app: mydemo
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: my-app
+      app: mydemo
   template:
     metadata:
       labels:
-        app: my-app
+        app: mydemo
     spec:
       containers:
-        - name: my-app
-          image: anhit98/my-app:v0.1.0
+        - name: mydemo
+          image: anhit98/mydemo:v0.1.0
           ports:
             - containerPort: 8080
