@@ -12,13 +12,7 @@ pipeline {
         //git branch: 'main', url: ''
       }
     }
-    stage('Build and Test') {
-      steps {
-        sh 'ls -ltr'
-        // build the project and run test
-        sh 'npm install'
-      }
-    }
+
     stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "doanh98/my-app:${BUILD_NUMBER}"
