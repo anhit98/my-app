@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: my-app
-          image: anhit98/my-app:14
+          image: doanh98/my-app:14
           ports:
             - containerPort: 8080
