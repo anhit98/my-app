@@ -19,4 +19,4 @@ spec:
         - name: my-app
           image: doanh98/my-app:14
           ports:
-            - containerPort: 8080
+            - containerPort: 8000
