@@ -60,6 +60,6 @@ This end-to-end Jenkins pipeline will automate the entire CI/CD process for a No
 ## Reference link: 
 * https://github.com/wangoimwangi/jenkins-CICD/blob/main/README.md
 * https://medium.com/devops-dev/building-an-end-to-end-ci-cd-pipeline-with-jenkins-7ef2205d7988
-  
+* https://medium.com/devops-dev/comprehensive-devops-implementation-project-b5ae52c2bbfa
 ++Note:
   - to fix permission denied error when running Jenkinsfile: run `sudo usermod -aG docker jenkins` then `sudo systemctl restart jenkins`.
